@@ -1,0 +1,48 @@
+/* ─── FAB flotante del carrito ─── */
+.cartFab {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 58px;
+  height: 58px;
+  background: var(--gold);
+  border: none;
+  border-radius: 50%;
+  color: var(--dark);
+  font-size: 1.3rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 25px rgba(201, 168, 76, 0.5);
+  z-index: 150;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cartFab:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 35px rgba(201, 168, 76, 0.65);
+}
+
+.cartBadge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: #e53935;
+  color: #fff;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  font-size: 0.72rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--dark);
+  animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popIn {
+  from { transform: scale(0); }
+  to   { transform: scale(1); }
+}

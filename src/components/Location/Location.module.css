@@ -1,0 +1,69 @@
+.location { background: var(--dark); }
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+/* ─── Info ─── */
+.info h3 {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.infoItem {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+  align-items: flex-start;
+}
+
+.infoIcon {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  background: rgba(201, 168, 76, 0.15);
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+}
+
+.infoLabel {
+  font-size: 0.75rem;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 2px;
+}
+
+.infoText {
+  color: #ddd;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* ─── Mapa ─── */
+.mapWrap {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.mapWrap iframe {
+  display: block;
+  width: 100%;
+  height: 380px;
+  border: none;
+}
+
+/* ─── Mobile ─── */
+@media (max-width: 900px) {
+  .grid { grid-template-columns: 1fr; }
+}

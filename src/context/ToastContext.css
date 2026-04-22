@@ -1,0 +1,19 @@
+.toast-global {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: var(--gold);
+  color: var(--dark);
+  padding: 1rem 1.5rem;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  font-size: 0.9rem;
+  z-index: 9999;
+  animation: slideUp 0.4s ease;
+  box-shadow: 0 10px 30px rgba(201, 168, 76, 0.3);
+}
+
+@keyframes slideUp {
+  from { transform: translateY(60px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}

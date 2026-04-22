@@ -1,0 +1,86 @@
+.footer {
+  background: #0a0a0a;
+  padding: 60px 5% 30px;
+  border-top: 1px solid #222;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+/* ─── Marca ─── */
+.logo {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  color: var(--gold);
+  margin-bottom: 0.8rem;
+}
+
+.brand p {
+  color: #777;
+  font-size: 0.88rem;
+  line-height: 1.8;
+  max-width: 280px;
+}
+
+.socials {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 1.2rem;
+}
+
+.socialBtn {
+  width: 36px;
+  height: 36px;
+  border: 1px solid #333;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #777;
+  text-decoration: none;
+  transition: all var(--transition);
+}
+
+.socialBtn:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  transform: translateY(-3px);
+}
+
+/* ─── Columnas ─── */
+.col h4 {
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.col ul         { list-style: none; }
+.col ul li      { margin-bottom: 0.6rem; }
+.col ul li a    { color: #777; text-decoration: none; font-size: 0.88rem; transition: color var(--transition); }
+.col ul li a:hover { color: var(--gold); }
+
+/* ─── Bottom ─── */
+.bottom {
+  text-align: center;
+  border-top: 1px solid #1a1a1a;
+  padding-top: 1.5rem;
+  color: #555;
+  font-size: 0.82rem;
+}
+
+.bottom span { color: var(--gold); }
+
+/* ─── Mobile ─── */
+@media (max-width: 900px) {
+  .grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 500px) {
+  .grid { grid-template-columns: 1fr; }
+}

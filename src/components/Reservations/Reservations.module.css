@@ -1,0 +1,435 @@
+/* ═══════════════════════════════════════════════════════════════
+   RESERVATIONS – CSS Module
+   ═══════════════════════════════════════════════════════════════ */
+
+.section { background: #111; }
+
+/* ─── Info rápida (3 chips) ─────────────────────────────────── */
+.infoCards {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+.infoCard {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  background: rgba(201, 168, 76, 0.08);
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  border-radius: 30px;
+  padding: 0.6rem 1.4rem;
+  font-size: 0.88rem;
+  color: #ccc;
+}
+
+.infoCard i { color: var(--gold); }
+
+/* ─── Contenedor principal del formulario ───────────────────── */
+.formContainer {
+  max-width: 700px;
+  margin: 0 auto;
+  background: #1a1a1a;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+}
+
+/* ─── Indicador de pasos ─────────────────────────────────────── */
+.stepIndicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin-bottom: 2.5rem;
+}
+
+.stepItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  gap: 0.4rem;
+}
+
+.stepCircle {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 2px solid #444;
+  background: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #555;
+  transition: all 0.4s ease;
+  z-index: 1;
+}
+
+.stepActive {
+  border-color: var(--gold);
+  background: var(--gold);
+  color: var(--dark);
+  box-shadow: 0 0 20px rgba(201, 168, 76, 0.4);
+}
+
+.stepDone {
+  border-color: var(--gold);
+  background: var(--gold);
+  color: var(--dark);
+}
+
+.stepLabel {
+  font-size: 0.72rem;
+  color: #555;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  transition: color 0.3s;
+}
+
+.stepLabelActive { color: var(--gold); }
+
+.stepLine {
+  width: 80px;
+  height: 2px;
+  background: #333;
+  margin: 0 0.5rem;
+  margin-bottom: 1.2rem;
+  transition: background 0.4s ease;
+}
+
+.stepLineDone { background: var(--gold); }
+
+/* ─── Panel del paso actual ──────────────────────────────────── */
+.stepPanel {
+  animation: slideIn 0.35s ease;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(20px); }
+  to   { opacity: 1; transform: translateX(0);    }
+}
+
+/* ─── Título del paso ────────────────────────────────────────── */
+.stepContent { }
+
+.stepTitle {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  margin-bottom: 1.8rem;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.stepTitle i { color: var(--gold); font-size: 1.2rem; }
+
+/* ─── Grupos de formulario ───────────────────────────────────── */
+.formGroup { margin-bottom: 1.4rem; }
+
+.formGroup label {
+  display: block;
+  font-size: 0.78rem;
+  color: #aaa;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.formGroup input[type="text"],
+.formGroup input[type="email"],
+.formGroup input[type="tel"],
+.formGroup input[type="date"],
+.formGroup select,
+.formGroup textarea {
+  width: 100%;
+  background: #111;
+  border: 1px solid #333;
+  border-radius: var(--radius-sm);
+  color: var(--white);
+  padding: 0.8rem 1rem;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color var(--transition);
+}
+
+.formGroup input:focus,
+.formGroup select:focus,
+.formGroup textarea:focus {
+  border-color: var(--gold);
+}
+
+.formGroup select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23c9a84c' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+}
+
+.formGroup select option { background: #1a1a1a; }
+
+.formGroup textarea { resize: vertical; min-height: 90px; }
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+/* ─── Slots de hora ──────────────────────────────────────────── */
+.timeGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+  gap: 0.6rem;
+}
+
+.timeSlot {
+  padding: 0.6rem 0.4rem;
+  border: 1px solid #333;
+  background: #111;
+  color: #aaa;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-family: var(--font-body);
+  transition: all var(--transition);
+  text-align: center;
+}
+
+.timeSlot:hover { border-color: var(--gold); color: var(--gold); }
+
+.timeSlotActive {
+  border-color: var(--gold);
+  background: rgba(201, 168, 76, 0.15);
+  color: var(--gold);
+  font-weight: 700;
+}
+
+/* ─── Selector de personas ───────────────────────────────────── */
+.guestGrid {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.guestBtn {
+  width: 58px;
+  height: 58px;
+  border: 1px solid #333;
+  background: #111;
+  border-radius: var(--radius-sm);
+  color: #aaa;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  font-size: 0.75rem;
+  font-family: var(--font-body);
+  transition: all var(--transition);
+}
+
+.guestBtn i { font-size: 0.9rem; }
+.guestBtn:hover { border-color: var(--gold); color: var(--gold); }
+
+.guestBtnActive {
+  border-color: var(--gold);
+  background: rgba(201, 168, 76, 0.15);
+  color: var(--gold);
+}
+
+/* ─── Selector de zona ───────────────────────────────────────── */
+.zoneGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.8rem;
+}
+
+.zoneCard {
+  border: 1px solid #333;
+  background: #111;
+  border-radius: var(--radius-md);
+  padding: 1rem 0.7rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  text-align: center;
+  transition: all var(--transition);
+  font-family: var(--font-body);
+}
+
+.zoneCard i { font-size: 1.4rem; color: #555; transition: color var(--transition); }
+.zoneCard:hover { border-color: var(--gold); }
+.zoneCard:hover i { color: var(--gold); }
+
+.zoneCardActive {
+  border-color: var(--gold);
+  background: rgba(201, 168, 76, 0.1);
+}
+
+.zoneCardActive i { color: var(--gold); }
+
+.zoneName { font-size: 0.88rem; font-weight: 700; color: var(--white); }
+.zoneDesc { font-size: 0.72rem; color: #777; }
+
+/* ─── Checkbox ───────────────────────────────────────────────── */
+.checkboxLabel {
+  display: flex !important;
+  align-items: center;
+  gap: 0.6rem;
+  cursor: pointer;
+  text-transform: none !important;
+  font-size: 0.88rem !important;
+  letter-spacing: 0 !important;
+  color: #bbb !important;
+}
+
+.checkboxLabel input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--gold);
+  cursor: pointer;
+}
+
+.privacyNote {
+  font-size: 0.78rem;
+  color: #555;
+  margin-top: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.privacyNote i { color: var(--gold); }
+
+/* ─── Navegación del formulario ──────────────────────────────── */
+.formNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #2a2a2a;
+  gap: 1rem;
+}
+
+.btnBack { flex: 0 0 auto; }
+.btnNext { flex: 1; max-width: 260px; margin-left: auto; }
+
+/* ─── Confirmación ───────────────────────────────────────────── */
+.confirmation {
+  text-align: center;
+  animation: fadeIn 0.5s ease;
+}
+
+.confirmIcon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold), #e0bc60);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  font-size: 2rem;
+  color: var(--dark);
+  animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.confirmTitle {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: var(--gold);
+}
+
+.confirmSubtitle {
+  color: #bbb;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.confirmCode {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(201, 168, 76, 0.1);
+  border: 1px dashed var(--gold);
+  border-radius: var(--radius-md);
+  padding: 0.8rem 2rem;
+  margin-bottom: 1.8rem;
+  gap: 0.2rem;
+}
+
+.confirmCode span { font-size: 0.72rem; color: #888; letter-spacing: 2px; text-transform: uppercase; }
+.confirmCode strong { font-size: 1.4rem; color: var(--gold); letter-spacing: 3px; font-family: var(--font-heading); }
+
+.confirmDetails {
+  text-align: left;
+  background: #111;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.2rem 1.5rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.confirmRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.confirmRow i {
+  color: var(--gold);
+  width: 16px;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+.confirmRow div { display: flex; flex-direction: column; gap: 1px; }
+.confirmRow span { font-size: 0.72rem; color: #777; text-transform: uppercase; letter-spacing: 1px; }
+.confirmRow strong { font-size: 0.92rem; color: var(--white); }
+
+.confirmNote {
+  font-size: 0.82rem;
+  color: #666;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.newReservationBtn { margin: 0 auto; display: inline-block; }
+
+/* ─── Animaciones ────────────────────────────────────────────── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes popIn {
+  0%   { transform: scale(0); }
+  80%  { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+/* ─── Mobile ─────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .formContainer { padding: 1.5rem; }
+  .zoneGrid      { grid-template-columns: 1fr; }
+  .formRow       { grid-template-columns: 1fr; }
+  .stepLine      { width: 40px; }
+  .btnNext       { max-width: 100%; }
+}

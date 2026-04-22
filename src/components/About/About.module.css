@@ -1,0 +1,67 @@
+.about { background: #111; }
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+/* ─── Imagen ─── */
+.imageWrap { position: relative; }
+
+.imageWrap img {
+  width: 100%;
+  border-radius: var(--radius-md);
+  filter: brightness(0.85);
+}
+
+.badge {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  width: 130px;
+  height: 130px;
+  background: var(--gold);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  color: var(--dark);
+  text-align: center;
+  padding: 10px;
+}
+
+.badgeNum { font-size: 2.2rem; font-weight: 900; line-height: 1; }
+.badgeSub { font-size: 0.65rem; font-weight: 700; letter-spacing: 1px; }
+
+/* ─── Contenido ─── */
+.content h2 {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+
+.content p {
+  color: #bbb;
+  line-height: 1.9;
+  margin-bottom: 1rem;
+}
+
+.stats {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.stat     { text-align: center; }
+.statVal  { display: block; font-family: var(--font-heading); font-size: 2rem; color: var(--gold); }
+.statLbl  { font-size: 0.75rem; color: #888; letter-spacing: 2px; }
+
+/* ─── Mobile ─── */
+@media (max-width: 900px) {
+  .grid  { grid-template-columns: 1fr; }
+  .badge { right: 0; }
+}
